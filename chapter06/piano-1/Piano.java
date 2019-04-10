@@ -11,13 +11,20 @@ public class Piano extends World
     /**
      * Instance variables (can be used anywhere below)
      */
+    //primitive date type
     int frames;
+    //object date type... square brackets[] indicate an array(a list)
+    String[] studentNames = { "Sarah", "Chelsea", "Jack", "Maxwell", "Gavin", 
+            "Minah", "Brandon", "Jeewoo", "Peter", "Justy"};
     public Piano() 
     {
         super(800, 340, 1);
         
         //start tracking frames
         frames = 0;
+        
+        //initialie the array of names
+        
     }
     
     /**
