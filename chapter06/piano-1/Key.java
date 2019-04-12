@@ -30,6 +30,7 @@ public class Key extends Actor
         {
             setImage("white-key-down.png");
             isDown = true;
+            play();
         }
         
         if (isDown == true && Greenfoot.isKeyDown("g") == false)
@@ -38,5 +39,13 @@ public class Key extends Actor
             isDown = false;
         }
     }
+    /**
+     * play the note of this key
+     */
+     public void play()
+     {
+         Greenfoot.playSound("3a.wav");
+     }
+     
 }
 
