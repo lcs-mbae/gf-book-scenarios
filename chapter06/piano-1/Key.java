@@ -4,7 +4,9 @@ public class Key extends Actor
 {
     /**
      * Create a new key.
+     * Constructor
      */
+     
     public Key()
     {
     }
@@ -14,6 +16,15 @@ public class Key extends Actor
      */
     public void act()
     {
+        if (Greenfoot.isKeyDown("g") )
+        {
+            setImage("white-key-down.png");
+            
+        }
+        else
+        {
+            setImage("white-key.png");
+        }
     }
 }
 
