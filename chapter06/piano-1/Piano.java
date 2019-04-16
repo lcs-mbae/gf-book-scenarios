@@ -44,9 +44,21 @@ public class Piano extends World
         //this block of code runs once per second until the end of the 
         //whiteKyes array
         //NOTE : whiteKyes length automatically returns the corret number
-        // of values in the array (so that
-        if ( (frames % 60 == 0) && (frames / 60 < whiteKeys.length) )
+        // of values in the array (so that we won't run past the end)
+        int position = frames / 60;
+        if ( (frames % 60 == 0) && (position < whiteKeys.length) )
         {
+            //Assemblel the piano by creating each key one by one
+            Key anotherKey = new Key(whiteKeys[position], whiteNotes[position]);
+         
+            //This line actually adds the object to the Piano world
+            // OBJECT HORIZONTAL POSITION VERTICAL POSITION
+            
+            addObject(anotherKey, 54 + position * 63 , 140);
+         
+            // only show a message when we are in the bounds of array
+            showText ("Array index is: " + position / 60, 400, 250);
+            
             
             //showText("Hello" + studentNames[frames / 60], 400, 170);
             
