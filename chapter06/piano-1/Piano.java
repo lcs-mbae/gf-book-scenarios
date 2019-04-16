@@ -43,7 +43,9 @@ public class Piano extends World
         //Boolean AND = &&
         //this block of code runs once per second until the end of the 
         //whiteKyes array
-        if ((frames % 60 == 0) && (frames / 60 < 10))
+        //NOTE : whiteKyes length automatically returns the corret number
+        // of values in the array (so that
+        if ( (frames % 60 == 0) && (frames / 60 < whiteKeys.length) )
         {
             
             //showText("Hello" + studentNames[frames / 60], 400, 170);
