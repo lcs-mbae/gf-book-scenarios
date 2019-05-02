@@ -42,11 +42,18 @@ public class Block extends Actor
     /**
      * Check whether the mouse button was clicked. If it was, change all leaves.
      */
+    // when Null is passed as an argument to mouseClicked, this method, mouseClicked
+    //returns true ANY TIME the mouse is clicked
+    //if you ass a specific object reference, this method returns true Only 
+    //when that object is clicked
+   
     private void checkMouseClick()
     {
         if (Greenfoot.mouseClicked(null)) 
         {
-            // do this when the mouse is clicked. currently: nothing.
+            World myWorld = getWorld();
+            
+            myWorld.showText("clicked mouse",200,200);
         }
     }
     
