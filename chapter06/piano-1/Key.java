@@ -12,13 +12,14 @@ public class Key extends Actor
      // (key and sound are object data types - shows in black, type is Capitalized)
      private String key;
      private String sound;
-     
+     private boolean isKeyWhite;
+    
     /**
      * Create a new key.
      * Constructor
      */
      
-    public Key(String keyName, String soundFile)
+    public Key(String keyName, String soundFile,boolean keyWhite)
     {
         //Key begins in the "up" position
         isDown = false;
@@ -26,7 +27,19 @@ public class Key extends Actor
         //Initialize the key and sound instance variable
         key = keyName;
         sound = soundFile;
+        
+        // Set what type of key this is instance is
+        isKeyWhite = keyWhite;
+        
+        // By default the piano key is white; when black, change the starting
+        // image
+        if (isKeyWhite == false)
+        {
+            setImage("black-key.png");
+        }
     }
+    
+    
 
     /**
      * Do the action for this key.
@@ -37,16 +50,19 @@ public class Key extends Actor
         //AND
         //the "g" key on the keyboard has been pressed
         //!isDown can also isDown == false
-        if (!isDown && Greenfoot.isKeyDown(key) )
+        if ( isDown == false && Greenfoot.isKeyDown(key) == true)
         {
-            setImage("white-key-down.png");
-            isDown = true;
+            // Make the piano key appear to be down and play the sound
+            keyDown();
             play();
+            isDown = true;
         }
         
-        if (isDown == true && Greenfoot.isKeyDown(key) == false)
+        // When the piano key is down, and the keyboard key was just released
+        if ( isDown == true && Greenfoot.isKeyDown(key) == false )
         {
-            setImage("white-key.png");
+            // Make the piano key appear to be up
+            keyUp();
             isDown = false;
         }
     }
@@ -57,6 +73,32 @@ public class Key extends Actor
      {
          Greenfoot.playSound(sound + ".wav");
      }
-     
+      private void keyDown()
+    {
+        if (isKeyWhite == true)
+        {
+            setImage("white-key-down.png");
+        }
+        else
+        {
+            setImage("black-key-down.png");
+        }
+    }
+    
+    /**
+     * Make the piano key appear to be up.
+     */
+    private void keyUp()
+    {
+        if (isKeyWhite == true)
+        {
+            setImage("white-key.png");
+        }
+        else
+        {
+            setImage("black-key.png");
+        }
+    }
 }
+
 
