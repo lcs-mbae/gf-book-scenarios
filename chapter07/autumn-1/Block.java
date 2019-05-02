@@ -1,4 +1,7 @@
 import greenfoot.*;
+//get access to the List type from the Java API
+import java.util.List;
+
 
 /**
  * A block that bounces back and forth across the screen.
@@ -53,7 +56,23 @@ public class Block extends Actor
         {
             World myWorld = getWorld();
             
-            myWorld.showText("clicked mouse",200,200);
+            //2 get a list of object refences to all the leaf objects in the world
+            //   Type   Name                       Class
+            List<Leaf> leaves = myWorld.getObjects(Leaf.class);
+            
+            //3 automatically iterate (loop) through the list the correct
+            //number of times
+            //with each iteration, get an object reference to the next Leaf
+            //in the list
+            //"for each leaf in the leaves list..."
+            
+            for (Leaf leaf : leaves)
+            {
+            //change the image on this particular leaf
+            leaf.changeImage();
+            }
+            
+            
         }
     }
     
